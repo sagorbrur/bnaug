@@ -81,13 +81,9 @@ class TokenReplacement:
         
         return output_sentences
 
-        
-    def tfidf_based(self, text):
-        pass
 
 class BackTranslation:
     pass
 
 class TextGeneration:
-    def paraphrase(self, sentence, model=None, n_sen=5):
-        pass
+    pass
