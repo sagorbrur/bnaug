@@ -5,7 +5,9 @@ Augban is a text augmentation tool for Bangla text.
 ```
 pip install augban
 ```
-
+- Dependencies
+    - pytorch >=1.7.0
+    
 ## Sentence Augmentation
 ### Token Replacement
 - Mask generation based augmentation
