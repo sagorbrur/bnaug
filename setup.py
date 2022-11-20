@@ -21,6 +21,7 @@ setuptools.setup(
     python_requires='>=3.7',
     install_requires=[
         "bnlp_toolkit==3.2.0",
-        "transformers==4.24.0"
+        "transformers==4.24.0",
+        "pytest==7.2.0",
     ]
 )
