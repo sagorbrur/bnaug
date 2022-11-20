@@ -56,3 +56,15 @@ output = bt.get_augmented_sentences(text)
 print(output)
 
 ```
+
+### Text Generation
+- Paraphrase generation
+
+```py
+from bnaug.sentence import TextGeneration
+
+tg = TextGeneration()
+text = "বিমানটি যখন মাটিতে নামার জন্য এয়ারপোর্টের কাছাকাছি আসছে, তখন ল্যান্ডিং গিয়ারের খোপের ঢাকনাটি খুলে যায়।"
+output = tg.parapharse_generation(text)
+print(output)
+```
