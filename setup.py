@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name="bnaug",
-    version="1.0.0dev0",
+    version="1.0.0",
     author="Sagor Sarker",
     author_email="sagorhem3532@gmail.com",
     description="bnaug is a text augmentation tool for Bangla text.",
