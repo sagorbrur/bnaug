@@ -1,5 +1,5 @@
 # bnaug (Bangla Text Augmentation)
-bnaug is a text augmentation tool for Bangla text.
+__bnaug__ is a text augmentation tool for Bangla text.
 
 ## Installation
 ```
@@ -43,3 +43,16 @@ pip install bnaug
     output = tokr.glove_based(text, vector_path=vector)
     print(output)
     ```
+
+### Back Translation
+Back translation based augmentation fist translate Bangla sentence to English and then again translate the English to Bangla.
+
+```py
+from bnaug.sentence import BackTranslation
+
+bt = BackTranslation()
+text = "বাংলা ভাষা আন্দোলন তদানীন্তন পূর্ব পাকিস্তানে সংঘটিত একটি সাংস্কৃতিক ও রাজনৈতিক আন্দোলন। "
+output = bt.get_augmented_sentences(text)
+print(output)
+
+```
