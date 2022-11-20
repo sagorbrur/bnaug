@@ -10,7 +10,7 @@ from transformers import (
     pipeline,
 )
 
-from augban import util
+from bnaug import util
 
 basic_tokenizer = BasicTokenizer()
 

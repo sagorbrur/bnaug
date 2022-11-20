@@ -1,9 +1,9 @@
-# Augban (Bangla Text Augmentation)
-Augban is a text augmentation tool for Bangla text.
+# bnaug (Bangla Text Augmentation)
+bnaug is a text augmentation tool for Bangla text.
 
 ## Installation
 ```
-pip install augban
+pip install bnaug
 ```
 - Dependencies
     - pytorch >=1.7.0

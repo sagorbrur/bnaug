@@ -1,4 +1,4 @@
-from augban.sentence import TokenReplacement, TextGeneration
+from bnaug.sentence import TokenReplacement, TextGeneration
 
 def test_mask_based():
     tokr = TokenReplacement()
@@ -21,7 +21,7 @@ def test_glove_based():
     print(output)
 
 def test_backtranslation():
-    from augban.sentence import BackTranslation
+    from bnaug.sentence import BackTranslation
 
     bt = BackTranslation()
     text = "বাংলা ভাষা আন্দোলন তদানীন্তন পূর্ব পাকিস্তানে সংঘটিত একটি সাংস্কৃতিক ও রাজনৈতিক আন্দোলন। "

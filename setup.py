@@ -3,11 +3,11 @@ import setuptools
 
 
 setuptools.setup(
-    name="augban",
+    name="bnaug",
     version="1.0.0",
     author="Sagor Sarker",
     author_email="sagorhem3532@gmail.com",
-    description="Augban is a text augmentation tool for Bangla text.",
+    description="bnaug is a text augmentation tool for Bangla text.",
     long_description=codecs.open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/sagorbrur/augban",
