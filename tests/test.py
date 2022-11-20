@@ -38,12 +38,12 @@ def test_paraphrase():
     # প্লেনটা এয়ারপোর্টের কাছে অবতরণ করার সময়, ল্যান্ডিং গিয়ার প্যানেলের ঢাকনাটা খুলে দেওয়া'
 
 if __name__ == "__main__":
-    # test_mask_based()
+    test_mask_based()
     # test_parapharse()
     # test_word2vec_based()
     # test_glove_based()
     # test_backtranslation()
-    test_paraphrase()
+    # test_paraphrase()
 
 # ['আমি এখানে বাস করি ।', 'আমি সেখানে বাস করি ।', 'আমি বাস করি ।', 'আমি বাংলাদেশে বাস করি ।', 
 # 'আমি ওখানে বাস করি ।', 'আমি ঢাকায বাস করি ।', 'আমি ঢাকায ভ্রমণ করি ।', 'আমি ঢাকায কাজ করি ।', 
