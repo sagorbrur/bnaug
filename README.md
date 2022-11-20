@@ -49,7 +49,7 @@ pip install bnaug
     ```
 
 ### Back Translation
-Back translation based augmentation fist translate Bangla sentence to English and then again translate the English to Bangla.
+Back translation based augmentation first translate Bangla sentence to English and then again translate the English to Bangla.
 
 ```py
 from bnaug.sentence import BackTranslation
