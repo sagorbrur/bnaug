@@ -68,3 +68,7 @@ text = "বিমানটি যখন মাটিতে নামার জ�
 output = tg.parapharse_generation(text)
 print(output)
 ```
+
+## Inspired from
+- [nlpaug](https://github.com/makcedward/nlpaug)
+- [amitness blog post](https://amitness.com/2020/05/data-augmentation-for-nlp/)
