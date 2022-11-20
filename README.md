@@ -7,6 +7,10 @@ pip install bnaug
 ```
 - Dependencies
     - pytorch >=1.7.0
+
+## Necessary Model Links
+- [word2vec](https://huggingface.co/sagorsarker/bangla_word2vec/resolve/main/bangla_word2vec_gen4.zip)
+- [glove vector](https://huggingface.co/sagorsarker/bangla-glove-vectors/resolve/main/bn_glove.300d.zip)
     
 ## Sentence Augmentation
 ### Token Replacement
