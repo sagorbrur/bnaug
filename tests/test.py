@@ -20,17 +20,20 @@ def test_glove_based():
     output = tokr.glove_based(text, vector_path=model)
     print(output)
 
-def test_parapharse():
-    gen = TextGeneration()
-    text = "আমি ঢাকায় বাস করি।"
-    out = gen.paraphrase(text)
-    print(out)
+def test_backtranslation():
+    from augban.sentence import BackTranslation
+
+    bt = BackTranslation()
+    text = "বাংলা ভাষা আন্দোলন তদানীন্তন পূর্ব পাকিস্তানে সংঘটিত একটি সাংস্কৃতিক ও রাজনৈতিক আন্দোলন। "
+    output = bt.get_augmented_sentences(text)
+    print(output)
 
 if __name__ == "__main__":
     # test_mask_based()
     # test_parapharse()
     # test_word2vec_based()
-    test_glove_based()
+    # test_glove_based()
+    test_backtranslation()
 
 # ['আমি এখানে বাস করি ।', 'আমি সেখানে বাস করি ।', 'আমি বাস করি ।', 'আমি বাংলাদেশে বাস করি ।', 
 # 'আমি ওখানে বাস করি ।', 'আমি ঢাকায বাস করি ।', 'আমি ঢাকায ভ্রমণ করি ।', 'আমি ঢাকায কাজ করি ।', 

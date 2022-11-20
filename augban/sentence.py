@@ -3,16 +3,19 @@ from bnlp import BasicTokenizer
 from bnlp import BengaliWord2Vec, BengaliGlove
 
 from bnlp.corpus import stopwords
-
 from transformers import (
     AutoModelWithLMHead,
+    AutoModelForSeq2SeqLM,
     AutoTokenizer,
     pipeline,
 )
 
+from augban import util
+
 basic_tokenizer = BasicTokenizer()
 
 MASK_TOKEN = "[MASK]"
+SPECIAL_TOKEN_LIST = ['<pad>', '</s>']
 
 class TokenReplacement:
     def masking_based(self, sentence, mask_model=None, sen_n=5, top_k=5):
@@ -83,7 +86,43 @@ class TokenReplacement:
 
 
 class BackTranslation:
-    pass
+    def __init__(self, model_bn_en_path=None, model_en_bn_path=None, top_k=10, top_p=0.5, num_beams=1):
+        if not model_bn_en_path:
+            model_bn_en_path = "csebuetnlp/banglat5_nmt_bn_en"
+        if not model_en_bn_path:
+            model_en_bn_path = "csebuetnlp/banglat5_nmt_en_bn"
+
+        self.model_bn2en = AutoModelForSeq2SeqLM.from_pretrained(model_bn_en_path)
+        self.tokenizer_bn2en = AutoTokenizer.from_pretrained(model_bn_en_path, use_fast=False)
+
+        self.model_en2bn = AutoModelForSeq2SeqLM.from_pretrained(model_en_bn_path)
+        self.tokenizer_en2bn = AutoTokenizer.from_pretrained(model_en_bn_path, use_fast=False)
+        self.top_k = top_k
+        self.top_p = top_p
+        self.num_beams = num_beams
+
+    def get_augmented_sentences(self, sentence):
+        inputs = self.tokenizer_bn2en.encode(sentence, return_tensors="pt")
+        outputs = self.model_bn2en.generate(inputs, top_k=self.top_k, top_p=self.top_p, num_beams=self.num_beams)
+        # print(outputs)
+        augment_sentences = []
+        for out in outputs:
+            en_sen = self.tokenizer_bn2en.decode(out)
+            en_sen = util.replace_special_token_to_empty(en_sen, SPECIAL_TOKEN_LIST)
+            en_sen = en_sen.strip()
+            inputs = self.tokenizer_en2bn.encode(sentence, return_tensors="pt")
+            outputs = self.model_en2bn.generate(inputs, top_k=self.top_k, top_p=self.top_p, num_beams=self.num_beams)
+            for out in outputs:
+                bn_sen = self.tokenizer_en2bn.decode(out)
+                bn_sen = util.replace_special_token_to_empty(bn_sen, SPECIAL_TOKEN_LIST)
+                # print(bn_sen)
+                augment_sentences.append(bn_sen)
+
+        return augment_sentences
+
+            
+
+   
 
 class TextGeneration:
     pass
