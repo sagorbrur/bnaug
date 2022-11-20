@@ -102,27 +102,23 @@ class BackTranslation:
         self.num_beams = num_beams
 
     def get_augmented_sentences(self, sentence):
-        inputs = self.tokenizer_bn2en.encode(sentence, return_tensors="pt")
-        outputs = self.model_bn2en.generate(inputs, top_k=self.top_k, top_p=self.top_p, num_beams=self.num_beams)
+        bn_inputs = self.tokenizer_bn2en.encode(sentence, return_tensors="pt")
+        en_outputs = self.model_bn2en.generate(bn_inputs, top_k=self.top_k, top_p=self.top_p, num_beams=self.num_beams)
         # print(outputs)
         augment_sentences = []
-        for out in outputs:
+        for out in en_outputs:
             en_sen = self.tokenizer_bn2en.decode(out)
             en_sen = util.replace_special_token_to_empty(en_sen, SPECIAL_TOKEN_LIST)
             en_sen = en_sen.strip()
-            inputs = self.tokenizer_en2bn.encode(sentence, return_tensors="pt")
-            outputs = self.model_en2bn.generate(inputs, top_k=self.top_k, top_p=self.top_p, num_beams=self.num_beams)
-            for out in outputs:
+            en_inputs = self.tokenizer_en2bn.encode(sentence, return_tensors="pt")
+            bn_outputs = self.model_en2bn.generate(en_inputs, top_k=self.top_k, top_p=self.top_p, num_beams=self.num_beams)
+            for out in bn_outputs:
                 bn_sen = self.tokenizer_en2bn.decode(out)
                 bn_sen = util.replace_special_token_to_empty(bn_sen, SPECIAL_TOKEN_LIST)
-                # print(bn_sen)
                 augment_sentences.append(bn_sen)
 
         return augment_sentences
 
-            
-
-   
 
 class TextGeneration:
     pass
