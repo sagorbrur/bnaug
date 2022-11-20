@@ -21,7 +21,7 @@ pip install bnaug
 
     tokr = TokenReplacement()
     text = "আমি ঢাকায় বাস করি।"
-    output = tokr.masking_based(text)
+    output = tokr.masking_based(text, sen_n=5)
     ```
 
 - Word2Vec based augmentation
@@ -32,7 +32,7 @@ pip install bnaug
     tokr = TokenReplacement()
     text = "আমি ঢাকায় বাস করি।"
     model = "msc/bangla_word2vec/bnwiki_word2vec.model"
-    output = tokr.word2vec_based(text, model=model)
+    output = tokr.word2vec_based(text, model=model, sen_n=5, word_n=5)
     print(output)
     ```
 
@@ -44,7 +44,7 @@ pip install bnaug
     tokr = TokenReplacement()
     text = "আমি ঢাকায় বাস করি।"
     vector = "msc/bn_glove.300d.txt"
-    output = tokr.glove_based(text, vector_path=vector)
+    output = tokr.glove_based(text, vector_path=vector, sen_n=5, word_n=5)
     print(output)
     ```
 
