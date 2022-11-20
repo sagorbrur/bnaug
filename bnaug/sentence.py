@@ -121,4 +121,22 @@ class BackTranslation:
 
 
 class TextGeneration:
-    pass
+    def parapharse_generation(self, sentence, model_path=None, top_k=5, top_p=0.6, num_beams=5):
+        if not model_path:
+            model_path = "csebuetnlp/banglat5_banglaparaphrase"
+        model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
+        tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
+        inputs = tokenizer.encode(sentence, return_tensors="pt")
+        outputs = model.generate(inputs, top_k=top_k, top_p=top_p, num_beams=num_beams)
+        augmented_sentences = []
+        for out in outputs:
+            para_sen = tokenizer.decode(out)
+            para_sen = util.replace_special_token_to_empty(para_sen, SPECIAL_TOKEN_LIST)
+            augmented_sentences.append(para_sen)
+        
+        return augmented_sentences
+
+        
+
+
+
