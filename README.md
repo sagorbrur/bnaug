@@ -11,7 +11,7 @@ pip install bnaug
 ## Necessary Model Links
 - [word2vec](https://huggingface.co/sagorsarker/bangla_word2vec/resolve/main/bangla_word2vec_gen4.zip)
 - [glove vector](https://huggingface.co/sagorsarker/bangla-glove-vectors/resolve/main/bn_glove.300d.zip)
-    
+
 ## Sentence Augmentation
 ### Token Replacement
 - Mask generation based augmentation
@@ -70,6 +70,33 @@ from bnaug.sentence import TextGeneration
 tg = TextGeneration()
 text = "বিমানটি যখন মাটিতে নামার জন্য এয়ারপোর্টের কাছাকাছি আসছে, তখন ল্যান্ডিং গিয়ারের খোপের ঢাকনাটি খুলে যায়।"
 output = tg.parapharse_generation(text)
+print(output)
+```
+
+## Random augmentation
+Randomly change the text
+
+```py
+from bnaug import randaug
+
+text = "১০০ বাকি দিলাম"
+output = randaug.remove_digits(text)
+print(output)
+
+text = "১০০! বাকি দিলাম?"
+output = randaug.remove_punctuations(text)
+print(output)
+
+text = "আমি ১০০ বাকি দিলাম"
+randaug.remove_stopwords(text)
+print(output)
+
+text = "আমি ১০০ বাকি দিলাম"
+randaug.remove_random_word(text)
+print(output)
+
+text = "আমি ১০০ বাকি দিলাম"
+randaug.remove_random_char(text)
 print(output)
 ```
 
