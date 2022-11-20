@@ -17,7 +17,7 @@ pip install bnaug
 - Mask generation based augmentation
 
     ```py
-    from augban.sentence import TokenReplacement
+    from bnaug.sentence import TokenReplacement
 
     tokr = TokenReplacement()
     text = "আমি ঢাকায় বাস করি।"
@@ -27,7 +27,7 @@ pip install bnaug
 - Word2Vec based augmentation
 
     ```py
-    from augban.sentence import TokenReplacement
+    from bnaug.sentence import TokenReplacement
 
     tokr = TokenReplacement()
     text = "আমি ঢাকায় বাস করি।"
@@ -39,7 +39,7 @@ pip install bnaug
 - Glove based augmentation
 
     ```py
-    from augban.sentence import TokenReplacement
+    from bnaug.sentence import TokenReplacement
 
     tokr = TokenReplacement()
     text = "আমি ঢাকায় বাস করি।"
