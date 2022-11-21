@@ -46,13 +46,13 @@ def test_random_remove():
     print(output)
 
 if __name__ == "__main__":
-    # test_mask_based()
+    test_mask_based()
     # test_parapharse()
     # test_word2vec_based()
     # test_glove_based()
     # test_backtranslation()
     # test_paraphrase()
-    test_random_remove() # ['আমি  বাকি দিলাম', 'আমি ১০০ বাকি দিলাম', '১০০ বাকি দিলাম', 'আমি ১০০ বাকি']
+    # test_random_remove() # ['আমি  বাকি দিলাম', 'আমি ১০০ বাকি দিলাম', '১০০ বাকি দিলাম', 'আমি ১০০ বাকি']
 
 # ['আমি এখানে বাস করি ।', 'আমি সেখানে বাস করি ।', 'আমি বাস করি ।', 'আমি বাংলাদেশে বাস করি ।', 
 # 'আমি ওখানে বাস করি ।', 'আমি ঢাকায বাস করি ।', 'আমি ঢাকায ভ্রমণ করি ।', 'আমি ঢাকায কাজ করি ।', 
