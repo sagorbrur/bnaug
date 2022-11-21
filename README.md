@@ -76,44 +76,43 @@ print(output)
 ### Random Augmentation
 - Random remove part and generate new sentence
 
-At present it's removing word, stopwords, punctuations, numbers and generate new sentences
+    At present it's removing word, stopwords, punctuations, numbers and generate new sentences
 
-```py
-from bnaug.sentence import RandomAugmentation
+    ```py
+    from bnaug.sentence import RandomAugmentation
 
-raug = RandomAugmentation()
-sentence = "আমি ১০০ বাকি দিলাম"
-output = raug.random_remove(sentence)
-print(output)
+    raug = RandomAugmentation()
+    sentence = "আমি ১০০ বাকি দিলাম"
+    output = raug.random_remove(sentence)
+    print(output)
 
-```
+    ```
 
-## Random augmentation
-Randomly change the text
+    or apply individually
 
-```py
-from bnaug import randaug
+    ```py
+    from bnaug import randaug
 
-text = "১০০ বাকি দিলাম"
-output = randaug.remove_digits(text)
-print(output)
+    text = "১০০ বাকি দিলাম"
+    output = randaug.remove_digits(text)
+    print(output)
 
-text = "১০০! বাকি দিলাম?"
-output = randaug.remove_punctuations(text)
-print(output)
+    text = "১০০! বাকি দিলাম?"
+    output = randaug.remove_punctuations(text)
+    print(output)
 
-text = "আমি ১০০ বাকি দিলাম"
-randaug.remove_stopwords(text)
-print(output)
+    text = "আমি ১০০ বাকি দিলাম"
+    randaug.remove_stopwords(text)
+    print(output)
 
-text = "আমি ১০০ বাকি দিলাম"
-randaug.remove_random_word(text)
-print(output)
+    text = "আমি ১০০ বাকি দিলাম"
+    randaug.remove_random_word(text)
+    print(output)
 
-text = "আমি ১০০ বাকি দিলাম"
-randaug.remove_random_char(text)
-print(output)
-```
+    text = "আমি ১০০ বাকি দিলাম"
+    randaug.remove_random_char(text)
+    print(output)
+    ```
 
 ## Inspired from
 - [nlpaug](https://github.com/makcedward/nlpaug)
