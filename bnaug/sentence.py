@@ -11,6 +11,7 @@ from transformers import (
 )
 
 from bnaug import util
+from bnaug import randaug
 
 basic_tokenizer = BasicTokenizer()
 
@@ -146,7 +147,18 @@ class TextGeneration:
         
         return augmented_sentences
 
-        
+class RandomAugmentation:
+    def random_remove(self, sentence, char_remove=False):
+        augmented_sentences = []
+        augmented_sentences.append(randaug.remove_digits(sentence))
+        augmented_sentences.append(randaug.remove_punctuations(sentence))
+        augmented_sentences.append(randaug.remove_stopwords(sentence))
+        augmented_sentences.append(randaug.remove_random_word(sentence))
+        if char_remove:
+            augmented_sentences.append(randaug.remove_random_char(sentence))
+
+        return augmented_sentences
+
 
 
 

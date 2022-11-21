@@ -73,6 +73,21 @@ output = tg.parapharse_generation(text)
 print(output)
 ```
 
+### Random Augmentation
+- Random remove part and generate new sentence
+
+At present it's removing word, stopwords, punctuations, numbers and generate new sentences
+
+```py
+from bnaug.sentence import RandomAugmentation
+
+raug = RandomAugmentation()
+sentence = "আমি ১০০ বাকি দিলাম"
+output = raug.random_remove(sentence)
+print(output)
+
+```
+
 ## Random augmentation
 Randomly change the text
 
