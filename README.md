@@ -7,6 +7,9 @@ pip install bnaug
 ```
 - Dependencies
     - pytorch >=1.7.0
+    
+## Demo Notebook
+- [bnaug demo](https://github.com/sagorbrur/bnaug/blob/main/notebook/bnaug_demo.ipynb)
 
 ## Necessary Model Links
 - [word2vec](https://huggingface.co/sagorsarker/bangla_word2vec/resolve/main/bangla_word2vec_gen4.zip)
