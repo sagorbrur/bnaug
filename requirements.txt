@@ -1,2 +1,2 @@
-bnlp_toolkit
+bnlp_toolkit==3.3.2
 transformers
